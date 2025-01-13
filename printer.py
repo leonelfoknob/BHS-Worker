@@ -127,23 +127,23 @@ class Printer:
         try:
             translateCode = {
                 "kp300v": {
-                    "-1": ["Bilinmiyor", "yellow"],
-                    "0": ["İyi", "green"],
-                    "4": ["Kağıt Yok", "yellow"],
+                    "-1": ["Bi", "yellow"],
+                    "0": ["Bi", "green"],
+                    "4": ["Bi", "yellow"],
                 },
                 "kp347": {
-                    "0": ["Bilinmiyor", "yellow"],
-                    "18": ["İyi", "green"],
-                    "114": ["Kağıt Yok", "yellow"],
-                    "118": ["Arıza", "red"],
+                    "0": ["Bi", "yellow"],
+                    "18": ["bi", "green"],
+                    "114": ["bi", "yellow"],
+                    "118": ["bi", "red"],
                 }
             }
 
             if not translateCode[self.printer_model][str(code)][0]:
-                return ["Bilinmiyor", "yellow"]
+                return ["Bi", "yellow"]
 
             return [translateCode[self.printer_model][str(code)][0], translateCode[self.printer_model][str(code)][1]]
         except Exception as e:
             print("translate_status_code")
             print(e)
-            return ["Bilinmiyor", "yellow"]
+            return ["Bi", "yellow"]
